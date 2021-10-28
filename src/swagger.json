@@ -1,0 +1,332 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "User Hobbies API",
+    "description": "User Hobbies API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:4000",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Hobbies",
+      "description": "API for hobbies in the system"
+    },
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/hobbie": {
+      "get": {
+        "tags": ["Hobbies"],
+        "summary": "Get all hobbies in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Hobbie"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Hobbies"],
+        "description": "Create new hobbie in system",
+        "parameters": [
+          {
+            "name": "Hobbie",
+            "in": "body",
+            "description": "Hobbie that we want to create",
+            "schema": {
+              "$ref": "#/definitions/AddEditHobbie"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "New Hobbie is created",
+            "schema": {
+              "$ref": "#/definitions/Hobbie"
+            }
+          }
+        }
+      }
+    },
+    "/hobbie/{hobbieId}": {
+      "parameters": [
+        {
+          "name": "hobbieId",
+          "in": "path",
+          "required": true,
+          "description": "ID of hobbie that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Hobbies"],
+        "summary": "Get hobbie with given ID",
+        "responses": {
+          "200": {
+            "description": "Hobbie is found",
+            "schema": {
+              "$ref": "#/definitions/Hobbie"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete hobbie with given ID",
+        "tags": ["Hobbies"],
+        "responses": {
+          "200": {
+            "description": "Hobbie is deleted",
+            "schema": {
+              "$ref": "#/definitions/Hobbie"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update hobbie with give ID",
+        "tags": ["Hobbies"],
+        "parameters": [
+          {
+            "name": "hobbie",
+            "in": "body",
+            "description": "Hobbie with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/AddEditHobbie"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hobbie is updated",
+            "schema": {
+              "$ref": "#/definitions/Hobbie"
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get all users in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Users"],
+        "description": "Create new user in system",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/AddEditUser"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete user with given ID",
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "User is deleted",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update user with give ID",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/AddEditUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User is updated",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/userHobbies/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get user hobbies with given ID",
+
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Delete user hobbie with given ID",
+        "description": "ID of Hobbie that we want to delete",
+        "name": "hobbieId",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Add Hobbie Id",
+            "schema": {
+              "$ref": "#/definitions/DeleteUserHobbie"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hobbie is deleted",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "definitions": {
+    "User": {
+      "required": ["name", "_id"],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "string"
+        },
+        "hobbieId": {
+          "type": "string"
+        }
+      }
+    },
+    "AddEditUser": {
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "hobbieId": {
+          "type": "string"
+        }
+      }
+    },
+    "DeleteUserHobbie": {
+      "required": ["hobbieId"],
+      "properties": {
+        "hobbieId": {
+          "type": "string"
+        }
+      }
+    },
+    "Users": {
+      "type": "array",
+      "$ref": "#/definitions/User"
+    },
+    "Hobbie": {
+      "required": ["name", "_id"],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "string"
+        },
+        "passion": {
+          "type": "string"
+        }
+      }
+    },
+    "AddEditHobbie": {
+      "required": ["name", "passion"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "passion": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
