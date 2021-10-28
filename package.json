@@ -1,10 +1,10 @@
 {
   "name": "user-hobbies-backend",
   "version": "1.0.0",
-  "description": "demo project for user hoobies",
+  "description": "demo project for user hobbies",
   "main": "src/server.js",
   "scripts": {
-    "start": "nodemon  src/server.ts",
+    "start": "nodemon src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Muhammad Haziq",
