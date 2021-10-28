@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "demo project for user hobbies",
   "main": "src/server.js",
-  "type": "module",
   "scripts": {
-    "start": "nodemon src/server.ts",
+    "start": "nodemon -r esm src/server.ts",
     "postinstall": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +14,7 @@
     "@types/cors": "^2.8.12",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "mongoose": "^6.0.12",
     "swagger-jsdoc": "^6.1.0",
