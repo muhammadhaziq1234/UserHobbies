@@ -27,6 +27,7 @@ connect();
 const routes: Array<CommonRoutesConfig> = [];
 routes.push(new UserRoutes(app));
 routes.push(new HobbieRoutes(app));
+require("dotenv").config();
 
 app.get("/", (req: express.Request, res: express.Response) => {
   res.status(200).send(`Server running at http://localhost:${port}`);
