@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 let database: mongoose.Connection;
 export const connect = () => {
   // add your own uri below
-  const uri = "mongodb://localhost:27017/User-Hobbies";
+  const uri =
+    "mongodb+srv://MuhammadHaziq:nextbridge18@cluster0.qyb5k.mongodb.net/User-Hobbies";
   if (database) {
     return;
   }
