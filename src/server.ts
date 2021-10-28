@@ -1,20 +1,16 @@
 import express from "express";
-import bodyParser from "body-parser";
 import cors from "cors";
 import { CommonRoutesConfig } from "./common/common.routes.config";
 import { UserRoutes } from "./controller/user/user.route";
 import { HobbieRoutes } from "./controller/hobbie/hobbie.route";
 import swaggerUi = require("swagger-ui-express");
 import fs = require("fs");
-import xmlparser from "express-xml-bodyparser";
 import { connect } from "./config/mongooseConnection";
 const app = express();
-// app.use(bodyParser.urlencoded({ extended: false }));
 express.urlencoded({
   extended: true,
 });
 app.use(express.json());
-// app.use(xmlparser());
 app.use(cors());
 app.use(
   "/api/docs",
