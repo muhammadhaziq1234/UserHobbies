@@ -32,7 +32,7 @@ app.get("/", (req: express.Request, res: express.Response) => {
   res.status(200).send(`Server running at http://localhost:${port}`);
 });
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App Listing On ${port} Port`);
 });
