@@ -46,10 +46,24 @@ var UsersDao = /** @class */ (function () {
     }
     UsersDao.prototype.addUser = function (user) {
         return __awaiter(this, void 0, void 0, function () {
+            var newUser;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, user_schema_1.default.create(user)];
-                    case 1: return [2 /*return*/, _a.sent()];
+                    case 0:
+                        if (!user.hobbieId) return [3 /*break*/, 4];
+                        return [4 /*yield*/, user_schema_1.default.create(user)];
+                    case 1:
+                        newUser = _a.sent();
+                        if (!newUser._id) return [3 /*break*/, 3];
+                        return [4 /*yield*/, user_schema_1.default.findByIdAndUpdate(newUser._id, {
+                                name: newUser.name,
+                                $push: { hobbies: user.hobbieId },
+                            }, { new: true, upsert: true })];
+                    case 2: return [2 /*return*/, _a.sent()];
+                    case 3: return [3 /*break*/, 6];
+                    case 4: return [4 /*yield*/, user_schema_1.default.create(user)];
+                    case 5: return [2 /*return*/, _a.sent()];
+                    case 6: return [2 /*return*/];
                 }
             });
         });

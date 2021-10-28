@@ -50,11 +50,9 @@ var hobbieController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        console.log("List");
                         return [4 /*yield*/, hobbie_service_1.default.list()];
                     case 1:
                         hobbies = _a.sent();
-                        console.log("hobbies", hobbies);
                         res.status(200).send(hobbies);
                         return [3 /*break*/, 3];
                     case 2:

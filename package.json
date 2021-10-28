@@ -2,10 +2,9 @@
   "name": "user-hobbies-backend",
   "version": "1.0.0",
   "description": "demo project for user hobbies",
-  "main": "src/server.js",
-  "type": "commonjs",
+  "main": "src/server.ts",
   "scripts": {
-    "start": "nodemon src/server.js",
+    "start": "nodemon -r esm src/server.js",
     "postinstall": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

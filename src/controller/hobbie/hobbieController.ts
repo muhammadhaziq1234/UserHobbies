@@ -4,9 +4,7 @@ import express from "express";
 class hobbieController {
   async listHobbies(req: express.Request, res: express.Response) {
     try {
-      console.log("List");
       const hobbies = await hobbieServices.list();
-      console.log("hobbies", hobbies);
       res.status(200).send(hobbies);
     } catch (err) {
       res.status(404).send({ message: "No Record Found" });

@@ -71,6 +71,7 @@ var userController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
+                        console.log(req.body, "TS Body");
                         return [4 /*yield*/, user_service_1.default.create(req.body)];
                     case 1:
                         user = _a.sent();
