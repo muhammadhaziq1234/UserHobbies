@@ -8,7 +8,21 @@ class UsersDao {
     console.log("Created new instance of UsersDao");
   }
   async addUser(user: BaseUserDTO) {
-    return await User.create(user);
+    if (user.hobbieId) {
+      const newUser = await User.create(user);
+      if (newUser._id) {
+        return await User.findByIdAndUpdate(
+          newUser._id,
+          {
+            name: newUser.name,
+            $push: { hobbies: user.hobbieId },
+          },
+          { new: true, upsert: true }
+        );
+      }
+    } else {
+      return await User.create(user);
+    }
   }
   async getUser(id: string) {
     return await User.findById({ _id: id });
